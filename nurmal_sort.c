@@ -1,43 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error_1.c                                    :+:      :+:    :+:   */
+/*   nurmal_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 19:11:37 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/02/28 13:10:41 by abdel-ou         ###   ########.fr       */
+/*   Created: 2023/03/04 21:32:02 by abdel-ou          #+#    #+#             */
+/*   Updated: 2023/03/10 09:58:56 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-int check_one(char **a_rgv, int a_rgc)
+void nurmal_sort(t_data *lol)
 {
-    int i = 1;
+    int i = 0;
     int j = 0;
-    int x = 0;
+    int end = git_big_pos(lol);
+    int len = 0;
     
-    if (a_rgc == 1)
-        x++;
-    while (a_rgv[i])
+    int tmp = 0;
+    while(i < end)
     {
-        while (a_rgv[i][j])
+        while(j < end)
         {
-            if ((a_rgv[i][j] > '9' || a_rgv[i][j]< '0') && a_rgv[i][j] != ' ')
-                x++;
+            if(lol[j].val > lol[j + 1].val)
+            {
+                tmp = lol[j].val;
+                lol[j].val = lol[j + 1].val;
+                lol[j + 1].val = tmp;
+                
+            }
+            len++;
             j++;
         }
-       i++;
-       j = 0;
+        j = 0;
+        i++;
     }
-    return (x);
 }
 
 // int main(int argc, char **argv)
 // {
-
-// printf("=====%d",check_one(argv, argc));
-
+//     (void)argc;
+//     t_data *lol;
+//     lol = fill_stack(argv);
+//     nurmal_sort(lol);
+//     sprint(lol);
 
 //     return (0);
 // }

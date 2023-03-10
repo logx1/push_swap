@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error_2.c                                    :+:      :+:    :+:   */
+/*   check_if_sorted.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 19:55:07 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/02/28 20:09:30 by abdel-ou         ###   ########.fr       */
+/*   Created: 2023/03/07 17:43:42 by abdel-ou          #+#    #+#             */
+/*   Updated: 2023/03/09 12:50:27 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-
-int main(int argc,char **argv)
+int check_if_sorted(t_data *lol)
 {
-    (void)argc;
-    t_data *lol;
     int i = 0;
-    lol = fill_stack(argv);
+    int index = 0;
 
-
-   while (lol[i].pos == 0)
+    while (lol[i].val)
     {
-        printf("%d\n",lol[i].val);
+        if (lol[i].val > lol[i + 1].val)
+        {
+            index++;
+        }
         i++;
     }
-     printf("%d\n",lol[i].val);
-
-    return (0);
+    // if the function return 0 or 1 than is true
+    return (index);
 }
+
+// int main(int argc, char **argv)
+// {
+//     (void)argc;
+//     t_data *lol;
+//     lol = NULL;
+//     lol = fill_stack(argv);
+
+//     printf("%d",check_if_sorted(lol));
+//     // sprint(lol);
+    
+//     return (0);
+// }
