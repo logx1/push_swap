@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:49:21 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/09 10:36:28 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/03/13 08:02:33 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ while (str[j])
 t_data *fill_stack(char **str)
 {
     t_data *lol ;
-    lol = malloc(sizeof(t_data) * ft_word_count(str, ' ') + 10);
+    lol = malloc(sizeof(t_data) * ft_word_count(str, ' ') + 1);
     int count = 0;
     int i = 0;
     int j = 1;

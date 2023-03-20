@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:08:27 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/10 08:04:52 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:01:41 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void ft_s(t_data *stack)
     tmp = stack[0].val;
     stack[0].val = stack[1].val;
     stack[1].val = tmp;
+    printf("lol\n");
 }
 
 void  ft_r(t_data *stack)
@@ -48,6 +49,7 @@ void  ft_r(t_data *stack)
         i++;
    }
    stack[i].val = tmp;
+   printf("ra\n");
 }
 
 void ft_rr(t_data *stack)
@@ -63,6 +65,7 @@ void ft_rr(t_data *stack)
             stack[0].val = stack_end;
         }
     }
+    printf("rra\n");
 }
 
 void ft_push_a(t_data *stack_a, t_data *stack_b)
@@ -85,6 +88,7 @@ void ft_push_a(t_data *stack_a, t_data *stack_b)
         stack_b[i].val = stack_b[i + 1].val;
         i++;
     }
+  printf("pa\n");
 }
 
 void ft_push_b(t_data *stack_a, t_data *stack_b)
@@ -107,6 +111,7 @@ void ft_push_b(t_data *stack_a, t_data *stack_b)
         stack_a[i].val = stack_a[i + 1].val;
         i++;
     }
+printf("pb\n");
 }
 
 // int main(int argc, char **argv)

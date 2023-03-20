@@ -6,20 +6,26 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:50:14 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/10 14:40:46 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:29:47 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 int main(int argc,char **argv)
 {
     t_data *stack_a;
     t_data *stack_b;
     int length = ft_word_count(argv, ' ');
-    stack_b = malloc(sizeof(int) * length + 50);
+    stack_b = malloc(sizeof(t_data) * length + 1);
   // stack_b[0].val = 1;
     stack_a = NULL;
+    
+
+
+
+    
     if (check_error_glob(argc,argv,stack_a) == 0)
     {
       stack_a = fill_stack(argv);
@@ -31,8 +37,24 @@ int main(int argc,char **argv)
       // ft_push_b(stack_a , stack_b);
       // ft_push_b(stack_a , stack_b);
       // ft_push_b(stack_a , stack_b);
-      sort_three(stack_a);
-    sprint(stack_a);
+      // send_big_halv(stack_a, stack_b);
+      // sort_lol(stack_a,stack_b);
+
+        
+ 
+
+       
+       
+       
+       sort_100(stack_a , stack_b);
+      //  sort_500(stack_a, stack_b);
+        my_sort(stack_a,stack_b);
+       
+        sort_lol(stack_a,stack_b);
+        
+       
+      // sprint(stack_a);
+  //  printf("\n ========= %d =========== \n",get_the_closer(stack_a));
     }else
     {
       printf("please check your arg!! \n");

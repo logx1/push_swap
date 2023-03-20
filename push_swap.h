@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:50:10 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/10 14:38:17 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:04:11 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@ int ft_word_count(char **str, char c);
 void ft_push_a(t_data *stack_a, t_data *stack_b);
 void ft_push_b(t_data *stack_a, t_data *stack_b);
 void sort_three(t_data *stack_a);
+void sort_lol(t_data *stack_a, t_data *stack_b);
+void my_sort(t_data *stack_a,t_data *stack_b);
+int get_the_closer(t_data *stack);
+void final_sort(t_data *stack_a, t_data *stack_b);
+void send_small_halv(t_data *stack_a, t_data *stack_b);
+int get_lenght(t_data *stack);
+void sort_500(t_data *stack_a, t_data *stack_b);
+void sort_100(t_data *stack_a, t_data *stack_b);
 #endif
