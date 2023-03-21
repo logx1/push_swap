@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:50:10 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/20 11:04:11 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/03/21 06:43:29 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int get_the_closer(t_data *stack);
 void final_sort(t_data *stack_a, t_data *stack_b);
 void send_small_halv(t_data *stack_a, t_data *stack_b);
 int get_lenght(t_data *stack);
-void sort_500(t_data *stack_a, t_data *stack_b);
 void sort_100(t_data *stack_a, t_data *stack_b);
+void sort_500(t_data *stack_a, t_data *stack_b);
 #endif

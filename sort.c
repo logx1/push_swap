@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:07:25 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/19 10:02:00 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:16:06 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,11 @@ void push_big(t_data *stack_a, t_data *stack_b)
         i++;
     }
     }
+    
+   
         ft_push_a(stack_a , stack_b);
+    
+    
 }
 
 void sort_lol(t_data *stack_a, t_data *stack_b)
@@ -120,10 +124,9 @@ int get_mud_val(t_data *stack)
     return (rus/i);
 }
 
-
 void send_small_halv(t_data *stack_a, t_data *stack_b)
 {
-    int mdil_v = get_mud_val(stack_a);
+      int mdil_v = get_mud_val(stack_a);
     int lenght = get_lenght(stack_a) / 2;
   
   while (get_lenght(stack_a) > lenght +1)
@@ -132,20 +135,16 @@ void send_small_halv(t_data *stack_a, t_data *stack_b)
     {
         ft_push_b(stack_a,stack_b);
     }else
-        ft_r(stack_a);
-            
+    {
+          ft_r(stack_a);  
     }
-
-if (get_lenght(stack_a) == 3)
+  }
+  
+ if (get_lenght(stack_a) == 3)
     {
         sort_three(stack_a);
-    } 
-    
-  }
-
-
-  
-
+    }   
+}
 
 void my_sort(t_data *stack_a,t_data *stack_b)
 {
@@ -158,92 +157,3 @@ void my_sort(t_data *stack_a,t_data *stack_b)
 
 
 
-
-// ==========================doccco sort ===================================
-// ==========================doccco sort ===================================
-// ==========================doccco sort ===================================
-// ==========================doccco sort ===================================
-// ==========================doccco sort ===================================
-
-
-
-
-int check_is_smolar(t_data *stack_a, t_data *stack_b)
-{
-    int i = 0;
-    int j = 0;
-    while (stack_a[i].val)
-    {
-        if (stack_b[0].val > stack_a[i].val)
-        {
-            j++;
-        }
-        
-        i++;
-    }
-    if (j == 0)
-    {
-        return (0);
-    }
-    return (1);
-    
-    
-}
-
-
-void push_the_smaller_to_head(t_data *stack)
-{
-    int i = 0;
-    int j = 0;
-    int tmp = stack[0].val;
-
-    while (i < get_lenght(stack))
-    {
-        if( tmp > stack[i].val)
-        {
-            tmp = stack[i].val;
-             j = i;
-        }
-           
-        i++;
-    }
-
-    while (stack[0].val != tmp)
-    {
-        ft_r(stack);
-    }
-}
-
-
-void push_the_closer_to_head(t_data *stack)
-{
-    int i = 0;
-    int j = 0;
-    int tmp = stack[0].val;
-
-    while (i < get_lenght(stack))
-    {
-        if( tmp > stack[i].val)
-        {
-            tmp = stack[i].val;
-             j = i;
-        }
-           
-        i++;
-    }
-
-    while (stack[0].val != tmp)
-    {
-        ft_r(stack);
-    }
-}
-
-void final_sort(t_data *stack_a, t_data *stack_b)
-{
-    if (check_is_smolar(stack_a,stack_b) == 0)
-    {
-         push_the_smaller_to_head(stack_a);
-         ft_push_a(stack_a, stack_b);
-    }
-    
-}
