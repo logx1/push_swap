@@ -6,45 +6,49 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 21:32:02 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/10 09:58:56 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/03/30 16:52:15 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void nurmal_sort(t_data *lol)
+
+void	ft_swapp(int *shdow, int *j)
 {
-    int i = 0;
-    int j = 0;
-    int end = git_big_pos(lol);
-    int len = 0;
-    
-    int tmp = 0;
-    while(i < end)
-    {
-        while(j < end)
-        {
-            if(lol[j].val > lol[j + 1].val)
-            {
-                tmp = lol[j].val;
-                lol[j].val = lol[j + 1].val;
-                lol[j + 1].val = tmp;
-                
-            }
-            len++;
-            j++;
-        }
-        j = 0;
-        i++;
-    }
+	int	tmp;
+
+	tmp = 0;
+	if (shdow[*j] > shdow[*j + 1])
+	{
+		tmp = shdow[*j];
+		shdow[*j] = shdow[*j + 1];
+		shdow[*j + 1] = tmp;
+	}
 }
 
-// int main(int argc, char **argv)
-// {
-//     (void)argc;
-//     t_data *lol;
-//     lol = fill_stack(argv);
-//     nurmal_sort(lol);
-//     sprint(lol);
+int	*nurmal_sort(t_data *lol, int *shdow)
+{
+	int	i;
+	int	j;
+	int	end;
+	int	t_end;
 
-//     return (0);
-// }
+	i = 0;
+	end = git_big_pos(lol);
+	t_end = end;
+	while (t_end >= 0)
+	{
+		shdow[t_end] = lol[t_end].val;
+		t_end--;
+	}
+	while (i < end)
+	{
+		j = 0;
+		while (j < end)
+		{
+			ft_swapp(shdow, &j);
+			j++;
+		}
+	i++;
+	}
+	return (shdow);
+}

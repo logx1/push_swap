@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   swap_fun.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 12:57:39 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/02 15:54:27 by abdel-ou         ###   ########.fr       */
+/*   Created: 2023/03/24 17:15:21 by abdel-ou          #+#    #+#             */
+/*   Updated: 2023/03/30 15:05:40 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sprint(t_data *lol)
+void	ft_sa(t_data	*stack)
 {
-    int i;
-    i = 0;
+	int	tmp;
 
-    while (lol[i].val)
-    {
-        printf("%d === %d\n",i,lol[i].val);
-        i++;
-    } 
+	tmp = stack[0].val;
+	stack[0].val = stack[1].val;
+	stack[1].val = tmp;
+	write(1, "sa\n", 3);
+}
+
+void	ft_sb(t_data	*stack)
+{
+	int	tmp;
+
+	tmp = stack[0].val;
+	stack[0].val = stack[1].val;
+	stack[1].val = tmp;
+	write(1, "sb\n", 3);
 }
