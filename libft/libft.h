@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:16:57 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/02 12:53:59 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:52:54 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
 
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);

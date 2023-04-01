@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:50:10 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/30 16:52:34 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:35:33 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ typedef struct s_data
 	int	val;
 	int	pos;
 }t_data;
+
+typedef struct s_help
+{
+	int	i;
+	int	j;
+	int	end;
+	int	*ko;
+}t_help;
+
 t_data		*fill_stack(char **str, t_data *stack);
 void		sprint(t_data *lol);
 void		ft_sa(t_data *stack);

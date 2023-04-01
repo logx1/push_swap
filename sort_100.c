@@ -6,22 +6,27 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 06:42:18 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/30 16:53:01 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/04/01 16:39:05 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fun1(int *i, int *j, int end)
+void	fun1(t_help *help, t_data *stack_a, t_data *stack_b)
 {
-	if (*i <= end)
-		(*i)++;
-	if (*j < end)
-		(*j)++;
+	if (help->i <= help->end)
+		(help->i)++;
+	if (help->j < help->end)
+		(help->j)++;
+	ft_push_b(stack_a, stack_b);
 }
 
-void	fun2(t_data *stack_a, t_data *stack_b)
+void	fun2(t_help *help, t_data *stack_a, t_data *stack_b)
 {
+	if (help->i <= help->end)
+		(help->i)++;
+	if (help->j < help->end)
+		(help->j)++;
 	ft_push_b(stack_a, stack_b);
 	ft_rb(stack_b);
 }
@@ -29,33 +34,38 @@ void	fun2(t_data *stack_a, t_data *stack_b)
 void	fun3(int *i, int *j)
 {
 	*i = 0;
-	*j = 18;
+	*j = 15;
+}
+
+void	funx(t_help *help, t_data *stack_a, t_data *stack_b)
+{
+	ft_rra(stack_a);
+	ft_push_b(stack_a, stack_b);
+	if (help->i <= help->end)
+		(help->i)++;
+	if (help->j < help->end)
+		(help->j)++;
 }
 
 void	sort_100(t_data *stack_a, t_data *stack_b)
 {
-	int		i;
-	int		j;
-	int		end;
-	int		*ko;
+	t_help	help;
 
-	ko = malloc(sizeof(int) * get_lenght(stack_a) + 1);
-	ko = nurmal_sort(stack_a, ko);
-	fun3(&i, &j);
-	end = get_lenght(stack_a);
+	help.ko = malloc(sizeof(int) * get_lenght(stack_a) + 1);
+	help.ko = nurmal_sort(stack_a, help.ko);
+	fun3(&help.i, &help.j);
+	help.end = get_lenght(stack_a);
 	while (get_lenght(stack_a))
 	{
-		if (stack_a[0].val >= ko[i] && stack_a[0].val <= ko[j])
-		{
-			ft_push_b(stack_a, stack_b);
-			fun1(&i, &j, end);
-		}
-		if (stack_a[0].val <= ko[i])
-		{
-			fun2(stack_a, stack_b);
-			fun1(&i, &j, end);
-		}
-		if (stack_a[0].val >= ko[j])
+		if (stack_a[0].val >= help.ko[help.i]
+			&& stack_a[0].val <= help.ko[help.j])
+			fun1(&help, stack_a, stack_b);
+		if (stack_a[get_lenght(stack_a) - 1].val >= help.ko[help.i]
+			&& stack_a[get_lenght(stack_a) - 1].val <= help.ko[help.j])
+			funx(&help, stack_a, stack_b);
+		if (stack_a[0].val <= help.ko[help.i])
+			fun2(&help, stack_a, stack_b);
+		if (stack_a[0].val >= help.ko[help.j])
 			ft_ra(stack_a);
 	}
 }
