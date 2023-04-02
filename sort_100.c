@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 06:42:18 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/04/02 14:24:41 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:38:20 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ void	sort_100(t_data *stack_a, t_data *stack_b)
 		if (stack_a[0].val >= help.ko[help.j])
 			ft_ra(stack_a);
 	}
+	free(help.ko);
 }

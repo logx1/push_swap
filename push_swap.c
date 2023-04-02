@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:50:14 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/04/02 15:25:21 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:39:31 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ int	main(int argc, char **argv)
 		algo_choss(stack_a, stack_b, length, argv);
 	else
 		write(2, "Error\n", 6);
+	free(stack_a);
+	free(stack_b);
 	return (0);
 }
