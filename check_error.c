@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 19:11:37 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/03/31 18:35:07 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:14:54 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,40 @@ long	long_atoi(const char *str)
 	return (rus * sign);
 }
 
-int	check_error_1(char **a_rgv, int a_rgc)
+void	funn3(int *i, int *x, int *l)
 {
-	int	i;
-	int	j;
-	int	x;
+	*i = 1;
+	*x = 0;
+	*l = 0;
+}
 
-	i = 1;
-	x = 0;
-	if (a_rgc == 1)
-		x++;
-	while (a_rgv[i])
+int	check_error_1(char **a_rgv, int __attribute__((unused))a_rgc)
+{
+	t_help1	help;
+
+	funn3(&help.i, &help.x, &help.l);
+	while (a_rgv[help.i])
 	{
-		j = 0;
-		while (a_rgv[i][j])
+		help.j = 0;
+		while (a_rgv[help.i][help.j])
 		{
-			if ((a_rgv[i][j] > '9' || a_rgv[i][j] < '0') && a_rgv[i][j] != ' ' )
-				x++;
-			if ((a_rgv[i][j] == '-' || a_rgv[i][j] == '+')
-				&& (a_rgv[i][j - 1] == ' ' || j == 0) && (a_rgv[i][j + 1] <= '9'
-					&& a_rgv[i][j + 1] >= '0'))
-				x--;
-			j++;
+			help.l += a_rgv[help.i][help.j];
+			if ((a_rgv[help.i][help.j] > '9' || a_rgv[help.i][help.j] < '0')
+				&& a_rgv[help.i][help.j] != ' ')
+				help.x++;
+			if ((a_rgv[help.i][help.j] == '-' || a_rgv[help.i][help.j] == '+')
+				&& (a_rgv[help.i][help.j - 1] == ' ' || help.j == 0)
+					&& (a_rgv[help.i][help.j + 1] <= '9'
+						&& a_rgv[help.i][help.j + 1] >= '0'))
+				help.x--;
+			help.j++;
 		}
-		i++;
+		if (help.l == 32 * help.j)
+			help.x++;
+		help.l = 0;
+		help.i++;
 	}
-	return (x);
+	return (help.x);
 }
 
 int	check_error_2(t_data *stack)
@@ -118,18 +126,4 @@ int	check_long(char **str)
 	j++;
 	}
 	return (lol);
-}
-
-int	check_error_glob(int a_rgc, char **a_rgv, t_data *lol)
-{
-	if (check_error_1(a_rgv, a_rgc) == 0)
-	{
-		lol = fill_stack(a_rgv, lol);
-		if (check_error_2(lol) == 0 && get_lenght(lol) != 0
-			&& check_long(a_rgv) == 0)
-		{
-			return (0);
-		}
-	}
-	return (1);
 }

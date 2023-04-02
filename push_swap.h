@@ -6,7 +6,7 @@
 /*   By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:50:10 by abdel-ou          #+#    #+#             */
-/*   Updated: 2023/04/01 19:35:33 by abdel-ou         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:08:07 by abdel-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ typedef struct s_help
 	int	end;
 	int	*ko;
 }t_help;
+
+typedef struct s_help1
+{
+	int	i;
+	int	j;
+	int	x;
+	int	l;
+}t_help1;
 
 t_data		*fill_stack(char **str, t_data *stack);
 void		sprint(t_data *lol);
@@ -58,4 +66,5 @@ int			get_the_closer(t_data *stack);
 int			ft_word_count(char **str, char c);
 int			get_lenght(t_data *stack);
 int			check(t_data *stack);
+int			check_long(char **str);
 #endif

@@ -6,35 +6,41 @@
 #    By: abdel-ou <abdel-ou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:21:53 by abdel-ou          #+#    #+#              #
-#    Updated: 2023/04/01 19:25:32 by abdel-ou         ###   ########.fr        #
+#    Updated: 2023/04/02 12:13:01 by abdel-ou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-FLAGS = -Wall -Wextra -Werror
-RM = rm -rf
+SRC = check_error.c check_if_sorted.c fil_stack.c nurmal_sort.c push_fun.c push_swap.c rotation_fun.c sort_3.c sort_5.c sort_100.c sort_500.c sort_last.c swap_fun.c
+
+CC = cc
+
+FLAGS = -Wall -Werror -Wextra
+
 LIBFT = libft
-all: $(NAME)
-	
-$(NAME):
+
+OBJ = $(SRC:.c=.o)
+
+
+$(NAME) : $(OBJ)
 	@make -C $(LIBFT)
+	@$(CC) $(OBJ) $(FLAGS) libft/libft.a -o $(NAME)
 
-	cc $(FLAGS) libft/libft.a *.c -o $(NAME)
 
+%.o:%.c
+	$(CC) $(FLAGS) -c $^ -o $@
+
+all : $(NAME)
+
+
+fclean:
+	@make fclean -C $(LIBFT)
+	@rm -rf $(NAME) $(OBJ)
 
 clean:
-	cd libft && make clean
-	
-	cc $(FLAGS) libft/libft.a *.c -o $(NAME)
-	
-fclean:
-	cd libft && make fclean
-	rm -rf push_swap
-	
+	@make clean -C $(LIBFT)
+	@rm -rf $(OBJ)
 
-re:
-	cd libft && make re
-	cc $(FLAGS) libft/libft.a *.c -o $(NAME)
-
+re:fclean all 
 	
